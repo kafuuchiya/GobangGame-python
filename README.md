@@ -1,4 +1,4 @@
-![Game UI](https://i.imgur.com/epJ3nGA.png)
+![Game UI](https://i.imgur.com/MrZqqpW.gif)
 # GobangGame-python
 Based on the purpose of learning python, I developed this little game.
 
@@ -54,8 +54,20 @@ Computer AI needs to understand the game to a certain extent, so we need to coll
   
     ****If connected to the opponent, it is sleep type***
   
-  Then we need to evaluate the above cases
+  Then we need to evaluate the above cases, and mark the score
   
   ![game evaluation](https://i.imgur.com/qbEoyMd.png)
   
 ### 3. Computer AI
+
+**I. Search best location on chessboard**
+
+   On a 15*15 chessboard, the computer AI tries to play chess in an empty place to get the best position and the best score
+   
+**II. Simulation for next step of opponent**
+
+   According to the position information obtained by 'I', the AI tries to play chess and simulates the opponent to play chess, and get the opponent's best location and the best score
+   
+**III. Compare the scores of 'I' and 'II'**
+
+  Choosing the best location based on the comparison result of the score, if there are multiple locations with the same score, randomly select from them
