@@ -23,7 +23,7 @@ class Gobang(tk.Tk):
     def __init__(self):
         super().__init__()
         # To set up and create a window
-        self.title('My GoBang Game')
+        self.title('My Gobang Game')
         self.resizable(width=False, height=False)  # To set resizable to false
         self.geometry('{0}x{1}'.format(WINDOWS_W, WINDOWS_H))  # window size
 
@@ -97,7 +97,7 @@ class Gobang(tk.Tk):
         # To set the tag for text style
         self.text_view.tag_configure('text_style',
                                      foreground='#ffffff',
-                                     font=('Arial', 12, 'bold'))
+                                     font=('Nimbus Mono L', 12, 'normal'))
         self.text_view['background'] = 'black'
         self.text_view.place(x=496, y=2)
         scroll.place(x=958, y=2, height=430)

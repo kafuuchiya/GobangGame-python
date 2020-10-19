@@ -1,3 +1,7 @@
+######################################
+# game computer AI action evaluation #
+######################################
+
 import numpy as np
 
 BLANK_GRID = 0
@@ -94,7 +98,7 @@ def checkpoints(x, y, checkerboard, role):
                 count += 1
             elif (cb[x - i][y - i] == BLANK_GRID) or (cb[x - i][y - i] == oneself):
                 head.append(cb[x - i][y - i])
-            elif cb[x - i][y - i] == 1:
+            elif cb[x - i][y - i] == opponent:
                 head.append(cb[x - i][y - i])
                 break
         else:
@@ -182,8 +186,8 @@ def evaluation(head, count, tail, opponent):
 # function of 'get_loc_and_score' is to get the coordinate of the max score and the table of the score
 def get_fav_loc(checkerboard, role):
     score = np.zeros((15, 15))    # white, AI
-    for x in range(0, 15):
-        for y in range(0, 15):
+    for y in range(0, 15):
+        for x in range(0, 15):
             if checkerboard[x][y] == 0:
                 score[x][y] = checkpoints(x, y, checkerboard, role)
     coordinate = np.argwhere(score > 0)
@@ -192,8 +196,8 @@ def get_fav_loc(checkerboard, role):
 
 def get_max_score(checkerboard, role):
     score = np.zeros((15, 15))
-    for x in range(0, 15):
-        for y in range(0, 15):
+    for y in range(0, 15):
+        for x in range(0, 15):
             if checkerboard[x][y] == 0:
                 score[x][y] = checkpoints(x, y, checkerboard, role)
 
@@ -203,15 +207,19 @@ def get_max_score(checkerboard, role):
 
 def get_loc_and_score(checkerboard, role):
     score = np.zeros((15, 15))
-    for x in range(0, 15):
-        for y in range(0, 15):
+
+    for y in range(0, 15):
+        for x in range(0, 15):
             if checkerboard[x][y] == 0:
                 score[x][y] = checkpoints(x, y, checkerboard, role)
-
+            else:
+                score[x][y] = checkerboard[x][y]*(-1)
+    score = score.astype(int)
     coordinate = np.argwhere(score == np.max(score))
     # If there are multiple optional coordinates, randomly select a coordinate
-    index = np.random.choice(len(coordinate))
-    y = coordinate[index][0]
-    x = coordinate[index][1]
-    point = [x, y]
-    return point, score
+    # print(coordinate)
+    # index = np.random.choice(len(coordinate))
+    # y = coordinate[index][0]
+    # x = coordinate[index][1]
+    # point = [x, y]
+    return coordinate, score

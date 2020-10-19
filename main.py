@@ -1,3 +1,8 @@
+############
+# run this #
+############
+
+
 from game_env import Gobang
 from computer_AI import ComputerAI
 import numpy as np

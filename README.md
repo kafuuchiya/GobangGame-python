@@ -7,10 +7,9 @@ Based on the purpose of learning python, I developed this little game.
 * **Usage**
 * **Requirements**
 * **Introduction**
-  * **Game rules & case**
   * **Technology**
+  * **Game rules, cases & evaluation**
   * **Computer AI**
-    * **Game evaluation**
   
 ## Usage
  1. If the computer system is Windows, you can use the .exe file in the dist directory.
@@ -30,15 +29,33 @@ Based on the purpose of learning python, I developed this little game.
 
 ## Introduction
 
-### 1. Game rules & case
-* Game role
-  Win when 5 points or more are connected in a line (as following)
+### 1. Technology
+
+  |   Tools |  Language  | Module  |
+  |:-------:|:----------:|:-------:|
+  | PyCharm |  python 3  | NumPy   |
+  |         |            | Tkinter |
+  
+### 2. Game rules, case & evaluation
+
+Computer AI needs to understand the game to a certain extent, so we need to collect some game cases and make the evaluation form. The quality of the evaluation form largely determines the intelligence of computer AI
+
+* **Game rules**
+
+  Game wins when 5 points or more are connected in a line (as following)
   
   ![game five](https://i.imgur.com/CF2IWVp.png)
   
-* Game case
+* **Game cases & evaluation**
 
+  First, we need to understand some simple game cases, as shown below
   
+  ![game case](https://i.imgur.com/OL8Dkfr.png)
   
-### 2. Technology
+    ****If connected to the opponent, it is sleep type***
+  
+  Then we need to evaluate the above cases
+  
+  ![game evaluation](https://i.imgur.com/qbEoyMd.png)
+  
 ### 3. Computer AI
